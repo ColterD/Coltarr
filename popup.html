@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Extension Popup</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Extension</h1>
+
+  <label for="flaresolverrEndpoint">Flaresolverr Endpoint:</label>
+  <input type="text" id="flaresolverrEndpoint" placeholder="http://localhost:8191/v1">
+  <button id="saveButton">Save Endpoint</button>
+
+  <button id="testButton">Test Flaresolverr</button>
+  <div id="message"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
