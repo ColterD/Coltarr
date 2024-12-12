@@ -1,27 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Extension Popup</title>
+  <title>Coltarr Settings</title>
   <style>
     body {
-      width: 300px;
-      padding: 10px;
+      width: 350px;
+      font-family: sans-serif;
+      padding: 15px;
+      background-color: #f2f2f2;
     }
+
+    h1 {
+      color: #2980b9;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
     label {
       display: block;
       margin-bottom: 5px;
+      font-weight: bold;
     }
+
     input[type="text"] {
-      width: 100%;
-      padding: 5px;
+      width: calc(100% - 20px);
+      padding: 8px 10px;
       margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
     }
+
     button {
-      padding: 5px 10px;
-      background-color: #4CAF50;
+      padding: 8px 15px;
+      background-color: #2980b9;
       color: white;
       border: none;
+      border-radius: 4px;
       cursor: pointer;
+      transition: background-color 0.3s;
+      margin-right: 5px;
+    }
+
+    button:hover {
+      background-color: #3498db;
+    }
+
+    .button-group {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 8px;
+    }
+
+    .remove-btn {
+      background-color: #c0392b;
+      color: white;
+      border: none;
+      padding: 3px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .remove-btn:hover {
+      background-color: #e74c3c;
+    }
+
+    #message {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -29,11 +95,17 @@
   <h1>My Extension</h1>
 
   <label for="flaresolverrEndpoint">Flaresolverr Endpoint:</label>
-  <input type="text" id="flaresolverrEndpoint" placeholder="http://localhost:8191/v1">
-  <button id="saveButton">Save Endpoint</button>
+  <input type="text" id="flaresolverrEndpoint" placeholder="https://flaresolverr.example.com">
+  <div class="button-group">
+    <button id="saveButton">Save Endpoint</button>
+    <button id="testButton">Test Endpoint</button>
+  </div>
+  <div id="message" class="hidden"></div>
 
-  <button id="testButton">Test Flaresolverr</button>
-  <div id="message"></div>
+  <h2>Blacklist</h2>
+  <ul id="blacklist"></ul>
+  <input type="text" id="newBlacklistItem" placeholder="Add site to blacklist (e.g. https://google.com)">
+  <button id="addButton">Add</button>
 
   <script src="popup.js"></script>
 </body>
